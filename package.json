@@ -1,0 +1,22 @@
+{
+  "name": "readme-pro",
+  "version": "1.0.0",
+  "description": "readme pro package installation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DawnWogerman/ReadMe-Pro.git"
+  },
+  "author": "Dawn Wogerman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DawnWogerman/ReadMe-Pro/issues"
+  },
+  "homepage": "https://github.com/DawnWogerman/ReadMe-Pro#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  }
+}
