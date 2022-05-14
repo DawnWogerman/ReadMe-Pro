@@ -2,12 +2,13 @@
 const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown.js');
 const fs = require('fs');
+const { title } = require('process');
 
 // TODO: Create an array of questions for user input
 const questions = [
     {
         type: 'input',
-        name: 'projectTitle',
+        name: 'title',
         message: 'Please enter the title of your project: (Required)',
         validate: projectTitleInput => {
             if(projectTitleInput){
@@ -63,25 +64,59 @@ const questions = [
         type: 'input',
         name: 'problemSolved',
         message: 'Please enter what problem this application/ project can help solve: (Required)',
-        validate: probSolvInput => {
-            if(probSolvInput) {
+        validate: probSolveInput => {
+            if(probSolveInput) {
                 return true;
             } else {
                 console.log('Please enter what problem this project solves!');
                 return false;
             }
         }
-    }
+    },
+
+    {
+        type: 'list',
+        name: 'licenseList',
+        message: 'Please choose the license used for this project:',
+        choices: ['agpl', 'apache', 'mit', 'none']
+
+    },
+
+    {
+        type: 'input',
+        name: 'gitHubUserName',
+        message: 'Please enter your GitHub username: (Required)',
+        validate: gitHubNameInput => {
+            if(gitHubNameInput) {
+                return true;
+            } else {
+                console.log('Please enter your GitHub username!');
+                return false;
+            }
+        }
+    },
+
+
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, function(err){
+        if(err) {
+            return console.log(err);
+        }
+        console.log('Success!');
+    });
+};
 
 // TODO: Create a function to initialize app
 function init(){
-    return inquirer.prompt(questions)
+    inquirer.prompt(questions)
+        .then(function(data){
+            writeToFile("README.md", generateMarkdown(data));
+        });
     
-}
+};
 
 // Function call to initialize app
 init();
