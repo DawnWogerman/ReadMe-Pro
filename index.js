@@ -85,6 +85,16 @@ const questions = [
         choices: ['agpl', 'apache', 'mit', 'none']
 
     },
+//Built with
+    {
+        type: 'checkbox',
+        name: 'languages',
+        message: 'Choose all languages this project was built with (Check all that apply)',
+        choices: ['HTML', 'CSS', 'JavaScript', 'ES6', 'Node', 'Bootstrap']
+    },
+
+
+
 //installation instructions
     {
         type: 'input',

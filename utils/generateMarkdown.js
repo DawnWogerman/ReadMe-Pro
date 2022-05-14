@@ -15,9 +15,11 @@ function generateMarkdown(data) {
   return `# ${data.title}
 
   ## Table-of-Contents
-  *[Description](#description)
-  *[Usage](#usage)
-  *[Questions](#questions)
+  - [Description](#description)
+  - [Built With](#built-with)
+  - [Usage](#usage)
+  - [Questions](#questions)
+ 
 
   ## [Description](#table-of-contents)
 
@@ -25,9 +27,22 @@ function generateMarkdown(data) {
 
   ${data.problemSolved}
 
+  ## [Bult With](#table-of-contents)
+
+  ${data.languages}
+
   ## [Usage](#table-of-contents)
 
   ${data.usage}
+
+
+  ## [Questions](#table-of-contents)
+
+  Please contact me using the following links
+
+  [GitHub](https://github.com/${data.gitHubUserName})
+
+  [Email: ${data.email}](mailto:${data.email})
 
 
 `;
