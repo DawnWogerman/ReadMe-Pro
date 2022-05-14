@@ -17,6 +17,18 @@ function generateMarkdown(data) {
   ## Table-of-Contents
   *[Description](#description)
   *[Usage](#usage)
+  *[Questions](#questions)
+
+  ## [Description](#table-of-contents)
+
+  ${data.why}
+
+  ${data.problemSolved}
+
+  ## [Usage](#table-of-contents)
+
+  ${data.usage}
+
 
 `;
 }
