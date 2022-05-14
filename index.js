@@ -6,6 +6,7 @@ const { title } = require('process');
 
 // TODO: Create an array of questions for user input
 const questions = [
+//project title and description start
     {
         type: 'input',
         name: 'title',
@@ -21,7 +22,7 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'projDesc',
+        name: 'description',
         message: 'Please enter a description of your project: (Required)',
         validate: projDescInput => {
             if(projDescInput){
@@ -32,6 +33,8 @@ const questions = [
             }
         }
     },
+//Title and description end
+//general information start
     {
         type: 'input',
         name: 'usage',
@@ -73,7 +76,8 @@ const questions = [
             }
         }
     },
-
+//general information end
+//license information
     {
         type: 'list',
         name: 'licenseList',
@@ -81,7 +85,13 @@ const questions = [
         choices: ['agpl', 'apache', 'mit', 'none']
 
     },
-
+//installation instructions
+    {
+        type: 'input',
+        name: 'installation',
+        message: 'Please enter instruction on how to install this application:',
+    },
+//user and collab information
     {
         type: 'input',
         name: 'gitHubUserName',
@@ -96,10 +106,24 @@ const questions = [
         }
     },
 
+    {
+        type: 'input',
+        name: 'email',
+        message: 'Please enter your email address: (Required)',
+        validate: emailInput => {
+            if(emailInput){
+                return true;
+            } else {
+                console.log('Email address is required!');
+                return false;
+            }
+        }
+    }
+
 
 ];
 
-// TODO: Create a function to write README file
+// function to write the read-me file
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, function(err){
         if(err) {
@@ -109,7 +133,7 @@ function writeToFile(fileName, data) {
     });
 };
 
-// TODO: Create a function to initialize app
+// function to initialize the application
 function init(){
     inquirer.prompt(questions)
         .then(function(data){
