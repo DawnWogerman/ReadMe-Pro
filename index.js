@@ -81,8 +81,16 @@ const questions = [
     {
         type: 'list',
         name: 'licenseList',
-        message: 'Please choose the license used for this project:',
-        choices: ['agpl', 'apache', 'mit', 'none']
+        message: 'Please choose the license used for this project: (Required)',
+        choices: ['agpl', 'apache', 'mit', 'gnu'],
+        validate: licenseListInput => {
+            if(licenseListInput){
+                return true;
+            } else {
+                console.log('You must pick a license');
+                return false;
+            }
+        }
 
     },
 //Built with
