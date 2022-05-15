@@ -38,12 +38,12 @@ const questions = [
     {
         type: 'input',
         name: 'usage',
-        message: 'Please briefly explain what your project does: (Required)',
+        message: 'Please briefly explain how to use this application: (Required)',
         validate: usageInput => {
             if(usageInput){
                 return true;
             } else {
-                console.log('Please enter an explanation of what your project does!')
+                console.log('Please enter an explanation how to use your application!')
                 return false;
             }
         }
@@ -82,34 +82,25 @@ const questions = [
         type: 'list',
         name: 'licenseList',
         message: 'Please choose the license used for this project: (Required)',
-        choices: ['agpl', 'apache', 'mit', 'gnu'],
+        choices: ['apache', 'mit', 'gnu'],
         validate: licenseListInput => {
             if(licenseListInput){
                 return true;
             } else {
                 console.log('You must pick a license');
-                return false;
+                return false
             }
         }
 
     },
-//Built with
-    {
-        type: 'checkbox',
-        name: 'languages',
-        message: 'Choose all languages this project was built with (Check all that apply)',
-        choices: ['HTML', 'CSS', 'JavaScript', 'ES6', 'Node', 'Bootstrap']
-    },
-
-
 
 //installation instructions
     {
         type: 'input',
         name: 'installation',
-        message: 'Please enter instruction on how to install this application:',
+        message: 'Please enter instructions on how to install this application:',
     },
-//user and collab information
+//user information (Questions)
     {
         type: 'input',
         name: 'gitHubUserName',
