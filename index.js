@@ -57,7 +57,7 @@ const questions = [
             if(whyInput){
                 return true;
             } else {
-                console.log('Please enter why your created this project!');
+                console.log('Please enter why you created this project!');
                 return false;
             }
         }
@@ -77,6 +77,7 @@ const questions = [
         }
     },
 //general information end
+
 //license information
     {
         type: 'list',
@@ -146,7 +147,7 @@ function writeToFile(fileName, data) {
 function init(){
     inquirer.prompt(questions)
         .then(function(data){
-            writeToFile("README.md", generateMarkdown(data));
+            writeToFile("./dist/README.md", generateMarkdown(data));
         });
     
 };
