@@ -17,7 +17,7 @@ function generateMarkdown(data) {
 
   ## Description
 
-  ${description}
+  ${data.description}
 
   ### Why This Project Was Created
 
